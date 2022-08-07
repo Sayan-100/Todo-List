@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1> Todo App </h1>
+        <form id="create-todo" action="/create_todo" method="POST">
+            <input type="text" name="Description" placeholder=" What do you need to do ?" required>
+
+            <select name="Category" required>
+        <option>Personal</option>
+        <option>Work</option>
+        <option>Cleaning</option>
+        <option>School</option>
+        <option> others</option>
+        </select>
+
+            <input type="date" id="birthday " name="DueDate">
+            <button type="submit" form="create-todo"><i class="fas fa-plus"></i>Add tasks</button>
+
+        </form>
+
+
+        <button type="submit" form="delete-form">Delete tasks</button>
+
+        <!-- form attribute is used to link the button with the form  by specifying the id -->
+
+        <form id="delete-form" action="/delete-todo" method="POST">
+            <ul>
+                <% for(let i of todo_list) {%>
+                    <li class="todo">
+                        <input type="checkbox" name="<%=i._id%>" value="">
+                        <!-- name attribute is used to take id of selected to do list from the from tag to the controller-->
+                        <div class="details">
+                            <p>
+                                <%= i.Description %>
+                            </p>
+                            <p>
+                                <button><%= i.Category %></button>
+                            </p>
+
+                            <p>
+
+                                <%= i.DueDate  %>
+                            </p>
+                        </div>
+                    </li>
+                    <% } %>
+            </ul>
+
+        </form>
+    </div>
+
+
+
+    <script type="text/javascript" src="/js/home.js">
+    </script>
+
+</body>
+
+</html>

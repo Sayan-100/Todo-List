@@ -1,0 +1,147 @@
+body {
+    background-color: gray;
+    margin: 0;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 0px;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 0px;
+    margin-top: 120px;
+}
+
+.form-fill {
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    outline: none;
+    border: 1px solid transparent;
+}
+
+#desc {
+    width: 100%;
+}
+
+p {
+    margin: 3px;
+}
+
+select {
+    outline: none;
+    border: 1px solid transparent;
+    background-color: white;
+    width: 100%;
+}
+
+option {
+    padding: 5px;
+    border: 1px solid transparent;
+}
+
+.description {
+    border: 0px 1px 1px 1px solid lightgray;
+    padding: 0px 20px;
+}
+
+.options {
+    border: 1px solid lightgray;
+    padding: 10px 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.btn-1 {
+    margin-right: 3px;
+    border-radius: 0px;
+}
+
+.btn-2 {
+    border-radius: 0px;
+}
+
+.submitbtn {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.single-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc_and_date {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.date {
+    font-size: 0.8rem;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    /* padding-left:30px; */
+    border: 1px solid lightgray;
+}
+
+#category {
+    margin-right: 3%;
+    color: white;
+    padding: 4px;
+    width: 80px;
+    height: 45px;
+    text-align: center;
+}
+
+#category:nth-of-type(2n) {
+    background-color: rgb(12, 12, 63);
+}
+
+#category span {
+    position: relative;
+    top: 5px;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40%;
+}
+
+li:hover {
+    background-color: lightgrey;
+}
+
+@media screen and (max-width:900px) {
+    .container {
+        width: 70%;
+    }
+}

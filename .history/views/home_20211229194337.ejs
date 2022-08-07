@@ -1,0 +1,104 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1> Todo App </h1>
+        <form id="create-todo" action="/create_todo" method="POST">
+            <div class="description">
+                <p>Description</p>
+                <input type="text" name="Description" placeholder=" What do you need to do ?" required>
+            </div>
+
+            <div class="options">
+
+                <div class="cat">
+                    <p>Category</p>
+                    <select name="Category" required>
+                    <option name="Choose" selected>Choose a Category</option>
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Cleaning</option>
+                    <option>School</option>
+                    <option> others</option>
+                    </select>
+                </div>
+
+                <div class="date">
+                    <p>Duedate</p>
+                    <input type="date" id="birthday " name="DueDate">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn btn-dark btn-1" form="create-todo"><i class="fas fa-plus"></i>Add tasks</button>
+            </div>
+
+        </form>
+
+
+
+        <!-- form attribute is used to link the button with the form  by specifying the id -->
+
+        <form id="delete-form" action="/delete-todo" method="POST">
+            <ul>
+                <% for(let i of todo_list) {%>
+                    <li class="single-todo">
+
+                        <div class="check">
+                            <input type="checkbox" name="<%=i._id%>" value="">
+                            <!-- name attribute is used to take id of selected to do list from the from tag to the controller-->
+
+                            <div class="desc_and_date">
+                                <b>
+                                    <span>
+                                        <%= i.Description%>
+                                    </span>
+                                </b>
+
+                                <span class="date">
+                                    <i class="fas fa-calendar-day"></i>
+                                    <%=i.DueDate%>
+                                    </span>
+                            </div>
+                        </div>
+
+                        <div id="category">
+                            <span>
+                                <%= i.Category %>
+                            </span>
+                        </div>
+
+                    </li>
+                    <% } %>
+            </ul>
+
+            <div class="submitbtn">
+                <button type="submit" class="btn btn-danger btn-2" form="delete-form"><i class="fas fa-trash"></i>Delete tasks</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <script type="text/javascript" src="/js/home.js">
+    </script>
+
+</body>
+
+</html>

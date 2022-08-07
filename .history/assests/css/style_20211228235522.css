@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+button {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    display: inline-block;
+}
